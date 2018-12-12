@@ -38,6 +38,18 @@ public class CacheConfiguration {
             cm.createCache(com.neo.dishathome.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.neo.dishathome.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.neo.dishathome.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Person.class.getName(), jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Person.class.getName() + ".orders", jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Person.class.getName() + ".comments", jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Kitchen.class.getName(), jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Kitchen.class.getName() + ".dishes", jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.OrderPreparation.class.getName(), jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.OrderPreparation.class.getName() + ".states", jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.State.class.getName(), jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Dish.class.getName(), jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Dish.class.getName() + ".orders", jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Dish.class.getName() + ".comments", jcacheConfiguration);
+            cm.createCache(com.neo.dishathome.domain.Comment.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
