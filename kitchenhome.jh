@@ -1,0 +1,80 @@
+/**
+ * [OK] The Person entity yes.
+ */
+entity Person {
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	birthday Instant,
+    address String
+}
+
+entity Kitchen {
+	type String,
+    name String,
+    description String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity OrderPreparation {
+	quantity Integer,
+	dateOrder Instant,
+    dateDelivery Instant,
+    specialInstruction String
+}
+
+entity State {
+	/* state can be : 
+     * requested, validated, rejected,
+     * inProgress, terminated, delivered
+     */
+	type String,
+    date Instant
+}
+
+entity Dish {
+	price Double,
+	name String,
+    description String,
+    note Integer
+}
+
+entity Comment {
+	content String,
+    note Integer
+}
+
+relationship OneToOne {
+	Person{cooker} to Kitchen
+}
+
+relationship OneToMany {
+    Kitchen{dish} to Dish,
+    OrderPreparation{state} to State
+}
+
+
+relationship OneToMany {
+    Person{order} to OrderPreparation,
+    Dish{order} to OrderPreparation
+}
+
+relationship OneToMany {
+    Person{comment} to Comment,
+    Dish{comment} to Comment
+}
+
+// Set pagination options
+paginate Person with pagination
+paginate Dish with pagination
+paginate Kitchen with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
